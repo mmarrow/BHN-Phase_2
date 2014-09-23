@@ -1,0 +1,438 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no height=device-height" />
+    <meta name="HandheldFriendly" content="true" />
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width">-->
+    <title>Bright House | Small Business Month</title>
+    <link rel="stylesheet" href="stylesheets/app.css" />
+    <link rel="stylesheet" href="stylesheets/custom.css" />
+    <link rel="stylesheet" href="stylesheets/jquery-ui.min.css">
+
+    <!-- Delete this in ref production and use below commented ref -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    
+    <!-- Reference for production 
+    <script src="js/libs/modernizr.js"></script>
+    -->
+
+  </head>
+  <body class="f-topbar-fixed">
+    <!-- Begin Nav -->
+<div class="contain-to-grid fixed">
+	<nav class="top-bar" data-topbar="">
+		<ul class="title-area">
+			<li class="name">
+				<h1><a href="#"></a></h1>
+			</li>
+			<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a>
+			</li>
+		</ul>
+
+		
+	<section class="top-bar-section">
+			<ul class="right">
+				<li>
+					<a href="#" data-dropdown="drop1" data-options="">Update Profile</a>
+					<div id="drop1" data-dropdown-content="" class="small f-dropdown content">
+						<p>Please enter the email address associated with your Small Business Month profile to receive a link to update your information. If you have questions please <a href="mailto:Small.BizMonth@mybrighthouse.com">contact us</a>.</p>
+						<form action="/Register/GetUpdateKeyCode" method="post" id="UpdateKeyForm">
+							<div class="row">
+								<div class="large-12 columns">
+									<div class="row collapse">
+										<div class="small-10 columns">
+											<input type="text" id="PhoneOrEmail" name="PhoneOrEmail" placeholder="email">
+										</div>
+										<div class="small-2 columns">
+											<input type="submit" class="button postfix" value=">">
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+                    <div id="drop2" data-dropdown-content="" class="small f-dropdown content">
+						<p></p>
+					</div>
+				</li>
+			</ul>
+
+
+			<!-- Left Nav Section -->
+			<ul class="left">
+				<li><a href="/Home/">HOME</a>
+				</li>
+				<li><a href="/Register#about">ABOUT</a>
+				</li>
+				<li><a href="/Register#register">REGISTRATION</a>
+				</li>
+				<li><a href="/Register#promote">PROMOTE</a>
+				</li>
+				<li><a href="/Register#rba">RBA AWARDS</a>
+				</li>
+			</ul>
+		</section></nav>
+</div>
+<!-- End Nav -->
+
+
+    
+
+
+
+<div class="row-img">
+	<img src="/img/update.jpg">
+</div>
+
+<section id="register">
+	<div class="content">
+        <div id="keynotfound" class="row" style="display:none">
+            <div class="line">
+					<h2>Update Profile Info</h2>
+				</div>
+
+            <p>Sorry, we could not locate an existing profile using the information you specified.  Please use the update profile option from the menu above to request a new link or <a href="mailto:Small.BizMonth@mybrighthouse.com">contact us</a> if you need further assistance.</p>
+
+            <br>
+            <br>
+            <br>
+        </div>
+
+		<div id="update-page" class="row">
+
+			<form action="/Register/Update" method="post" id="RegistrationForm" enctype="multipart/form-data" data-abide="" novalidate="novalidate">
+                <input type="hidden" name="CompanyID" id="CompanyID" value="445a7c08-a679-4838-bbf7-421f6a918a74">
+
+				<div class="line">
+					<h2>Update Profile Info</h2>
+				</div>
+				
+				
+				<h5>YOUR INFORMATION</h5>
+				<div class="row">
+					<div class="medium-6 columns">
+						<label class="required">Your Name</label>
+						<input type="text" name="RegistrantName" id="RegistrantName" placeholder="First Last" maxlength="50" value="Chris Droessler" required="">
+						<small class="error">This field is required</small>
+					</div>
+					<div class="medium-6 columns">
+						<label class="required">Your Email</label>
+						<input type="text" name="RegistrantEmail" id="RegistrantEmail" placeholder="email-address@domain.com" value="chris.droessler@mybrighthouse.com" pattern="^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" maxlength="50" required="">
+						<small class="error">This field is required and must be a valid email address</small>
+					</div>
+				</div>
+				
+				<h5>COMPANY INFORMATION</h5>
+				<div class="row">
+					<div class="medium-6 columns">
+						<label class="label-cn required" for="CompanyName">Name of Company</label>
+						<input class="input-cn" name="CompanyName" id="CompanyName" type="text" placeholder="" maxlength="100" value="Prod test 2" required="">
+						<small class="error">This field is required</small>
+					</div>
+					<div class="medium-6 columns">
+						<label class="label-web" for="Website">Website</label>
+						<input class="input-web" name="WebSite" id="Website" type="url" placeholder="http://" maxlength="100" value="http://something.com">
+						<small class="error">Please enter a valid website address with http:// format</small>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="medium-6 columns">
+						<label class="label-ca" for="chamber">Chamber Affiliation</label>
+						<input class="input-ca acInput" id="chamber" name="chamber" type="text" placeholder="" value="Central Florida Partnership">
+					</div>
+					<div class="medium-6 columns">
+						<label class="label-cat required" for="Category">Business Categories</label>
+						<select class="input-cat" name="Category" id="Category" required="">
+							<option value="">- Select -</option>
+							<option value="1">Dining</option>
+							<option value="2">Shopping</option>
+							<option value="3" selected="">Entertainment</option>
+							<option value="4">Travel</option>
+							<option value="5">Services</option>
+						</select>
+                        <small class="error">This field is required</small>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="medium-6 columns">
+						<label class="label-emp required" for="CompanySize">Number of Employees</label>
+						<input class="input-emp" name="CompanySize" id="CompanySize" type="text" placeholder="" maxlength="20" value="25" required="">
+						<small class="error">This field is required</small>
+					</div>
+					<div class="medium-6 columns">
+						<label class="label-cus required" for="Customer">Are you a Bright House Customer?</label>
+						<select class="input-cus" name="Customer" id="Customer" required="">
+							<option value="-1">- Select -</option>
+							<option value="Residential" selected="">Residential</option>
+							<option value="Enterprise Solutions">Enterprise Solutions</option>							
+							<option value="Business Solutions">Business Solutions</option>
+							<option value="both">Both Business &amp; Residential</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- Begin Dynamic Portion of Form -->
+				<div id="entry1" class="clonedInput">
+					<h5 id="reference" name="reference" class="heading-reference">COMPANY CONTACT INFORMATION</h5>
+					<div class="row">
+						<div class="medium-6 columns">
+							<label class="label-phn required" for="Phone">Company Phone</label>
+                            <input class="input-phn" name="Phone" id="Phone" type="tel" pattern="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}" placeholder="" maxlength="25" value="407-215-1234" required="">
+							<small class="error">This field is required and must be a valid phone number</small>
+						</div>
+						<div class="medium-6 columns">
+							<label class="label-add required" for="Address">Address</label>
+							<input class="input-add" name="Address" id="Address" type="text" placeholder="" maxlength="100" value="65 S. Keller Rd." required="">
+							<small class="error">This field is required</small>
+						</div>
+					</div>
+					<div class="row">
+						<div class="medium-6 columns">
+							<label class="label-city required" for="City">City</label>
+							<input class="input-city" name="City" id="City" type="text" placeholder="" maxlength="25" value="Orlando" required="">
+							<small class="error">This field is required</small>
+						</div>
+						<div class="row">
+							<div class="medium-6 columns">
+								<div class="large-3 medium-3 small-3 columns">
+									<label class="label-st required" for="State">State</label>
+									<select class="input-st" name="State" id="State" required="">
+										<option value="FL" selected="">FL</option>
+										<option value="AK">AK</option>
+										<option value="AL">AL</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DC">DC</option>
+										<option value="DE">DE</option>
+                    <option value="FL">FL</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="IA">IA</option>
+										<option value="ID">ID</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VA">VA</option>
+										<option value="VT">VT</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
+									</select>
+									<small class="error">This field is required</small>
+								</div>
+								<div class="medium-6 small-8 columns end">
+									<label class="label-zip required" for="Zip">Zip</label>
+									<input class="input-zip" type="text" name="Zip" id="Zip" placeholder="" pattern="(\d{5}([\-]\d{4})?)" maxlength="10" value="32801" required="">
+									<small class="error">This field is required and must be a valid zip code</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End Dynamic Portion of Form -->
+				
+								
+				
+
+				<div class="row">
+					<div class="medium-6 columns">
+						<div>
+							<input type="button" id="add-btn" value="Add a Company Location (optional)">
+							<input type="button" id="del-btn" value="Remove Company Location Above">
+						</div>
+					</div>
+				</div>
+			
+
+			<div class="row">
+            <div class="large-12 columns">
+              <label>Business Description</label>
+              <textarea maxlength="400" name="BusinessDescription" id="BusinessDescription" placeholder="Business Description">This is a great business description</textarea>
+            </div>
+          	</div>
+          
+          <div class="row">
+						<div class="large-6 medium-6 columns">
+							<label for="BusinessLogo">Business Logo</label>
+                                <a href="/Image.ashx?companyID=445a7c08-a679-4838-bbf7-421f6a918a74&amp;logo=true" target="_new"><img src="/Image.ashx?companyID=445a7c08-a679-4838-bbf7-421f6a918a74&amp;logo=true" width="100"></a> (current logo thumbnail)
+							<span data-tooltip="" data-options="disable_for_touch:true" class="has-tip tip-bottom radius" data-selector="tooltip-hzlo5mfj0" title="">
+                            <input name="BusinessLogo" id="BusinessLogo" type="file" placeholder="">
+              				</span>
+                        </div>
+						<div class="large-6 medium-6 columns">
+							<label for="BusinessPhoto">Business Photo</label>
+                                <a href="/Image.ashx?companyID=445a7c08-a679-4838-bbf7-421f6a918a74&amp;logo=false" target="_new"><img src="/Image.ashx?companyID=445a7c08-a679-4838-bbf7-421f6a918a74&amp;logo=false" width="250"></a> (current image thumbnail)
+							<span data-tooltip="" data-options="disable_for_touch:true" class="has-tip tip-bottom radius" data-selector="tooltip-hzlo5mfj1" title="">
+							<input name="BusinessPhoto" id="BusinessPhoto" type="file" placeholder="">
+							</span>
+                        </div>
+					</div>
+					
+					<div class="row">
+            <div class="large-12 columns">
+              <label for="offer">Offer</label>
+              <textarea maxlength="500" name="Offer" id="Offer">test offer updated</textarea>
+            </div>
+          </div>
+
+				 <div class="row">
+						<div class="large-5 medium-5 columns">
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label for="OfferStartDate">Offer Start Date</label>
+									<input name="OfferStartDate" id="OfferStartDate" class="datepicker hasDatepicker" value="11/15/2014" type="text">
+								</div>	
+								<div class="large-6 medium-6 small-6 columns end">
+									<label for="OfferEndDate">Offer End Date</label>
+									<input name="OfferEndDate" id="OfferEndDate" class="datepicker hasDatepicker" value="11/30/2014" type="text">
+								</div>
+							</div>	
+						</div>
+					</div>
+				
+			
+				
+					<div class="row opt-in">
+							<div class="small-12 columns">
+								<label>Opt-in to Receive Updates</label>
+								<div class="small-12">
+									<input name="OptInAdvertisingInformation" id="OptInAdvertisingInformation" placeholder="" value="on" checked="checked" type="checkbox"><label for="OptInAdvertisingInformation">Bright House Media Strategies/Ad Sales</label>
+								</div>
+								<div class="small-12">
+									<input name="OptInEnterpriseSolutions" id="OptInEnterpriseSolutions" placeholder="" value="on" checked="checked" type="checkbox"><label for="OptInEnterpriseSolutions">Bright House Enterprise Solutions</label>
+								</div>  
+								<div class="small-12">
+									<input name="OptInBusinessSolutions" id="OptInBusinessSolutions" placeholder="" value="on" checked="checked" type="checkbox"><label for="OptInBusinessSolutions">Bright House Business Solutions</label>
+								</div>  
+								<div class="small-12">
+									<input name="OptInInFreeWiFiHotspot" id="OptInInFreeWiFiHotspot" placeholder="" value="on" checked="checked" type="checkbox"><label for="OptInInFreeWiFiHotspot">Bright House Free WiFi Hotspots</label>
+								</div>  
+							</div>
+                    </div>
+	                <div class="small-12 medium-3">
+							<p>
+								<input type="submit" value="UPDATE INFO" onclick="if (!document.getElementById('RegistrationForm').checkValidity()) {
+                                    $('#step-1').show();
+                                    $('#next-btn').hide(); $('#prev-btn').hide();
+                                }" class="small radius button expand">
+							</p>
+						</div>
+
+			</form>
+		</div>
+	</div>
+</section>
+
+    <!-- Begin footer -->
+<footer>
+	<div class="row">
+		<div class="small-8 columns">
+			<p>©2014 Bright House Networks. All rights reserved.
+				<br>Use of this site constitutes acceptance of our <a href="http://brighthouse.com/policies/policies/online-services-user-agreement.html" target="_new">User Agreement</a> and <a href="http://brighthouse.com/policies/policies/online-services-privacy-policy.html" target="_new">Privacy Policy</a>.
+				<br>The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Bright House Networks.</p>
+		</div>
+		<div class="small-4 columns">
+			<p>
+				<a href="http://brighthouse.com/policies/policies/online-services-privacy-policy.html#california-rights" target="_blank">Your California Privacy Rights</a>
+				<br>
+                <a href="mailto:Small.BizMonth@mybrighthouse.com">Contact Us</a>
+                <br>
+				<a href="/Home/Terms" target="_blank">Terms and Conditions</a>
+			</p>
+		</div>
+	</div>
+</footer>
+    <!-- End footer -->
+
+
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div><div class="acResults" style="display: none; position: absolute;"></div>
+    <!-- End footer -->
+        
+    <script src="bower_components/foundation/js/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/navScroll.js"></script>
+    <script src="js/form.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+			$(function() {
+    		$( ".datepicker" ).datepicker({ minDate: new Date(2014, 11 - 1, 01) });
+  		});
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+					$("table > tbody td").css("padding-right", "10px");
+					if ("@Html.Raw(ViewBag.ErrorMessage)" != "") {
+							$('#error').show();
+					}
+
+					$("#chamber").autocomplete('@Url.Action("ChamberNames", "Register")', { minChars: 3 });
+
+			});
+		</script>
+		<script>
+    $(function() {
+      var $body;
+      if (Modernizr.touch) {
+        $body = $("body");
+        document.addEventListener('focusin', function() {
+          return $body.addClass("fixfixed");
+        });
+        return document.addEventListener('focusout', function() {
+          $body.removeClass("fixfixed");
+          return setTimeout(function() {
+            return $(window).scrollLeft(0);
+          }, 20);
+        });
+      }
+    });
+		</script>
+   
+    <!-- References for production
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/foundation.min.js"></script>
+    <script src="js/libs/app.js"></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/navScroll.js"></script>
+    <script src="js/form.js"></script>-->
+ 
+
+</html>
