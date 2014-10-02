@@ -6,17 +6,12 @@
     <meta name="HandheldFriendly" content="true" />
     <!--<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width">-->
     <title>Bright House | Small Business Month</title>
-    <link rel="stylesheet" href="stylesheets/app.css" />
-    <link rel="stylesheet" href="stylesheets/phase-2.css" />
-    <link rel="stylesheet" href="stylesheets/jquery-ui.min.css">
+    <link rel="stylesheet" href="stylesheets/app.css"/>
+    <link rel="stylesheet" href="stylesheets/shared.css"/>
+    <link rel="stylesheet" href="stylesheets/home.css"/>
 
     <!-- Delete this in ref production and use below commented ref -->
     <script src="bower_components/modernizr/modernizr.js"></script>
-    
-    <!-- Reference for production 
-    <script src="js/libs/modernizr.js"></script>
-    -->
-
   </head>
   <body>
     
@@ -76,7 +71,8 @@
 <!-- End Nav -->
 
 
-<section id="home" data-type="background" data-speed="10">
+<section id="home">
+	<div class="content">
 		<div class="row">
 			<div class="large-7 medium-7 small-12 columns">
 				<div class="circle-bg">
@@ -90,103 +86,158 @@
 							<!-- This is for SEO - One <h1> per page hack for one page parallax design -->
 							<h1>Bright House Small Business Month</h1>
 						</div>
-						<h4>Begins November 1st</h4>
-						<p>This November, we invite you to say goodbye to the big box supercenters, chain restaurants, and department stores. Instead we encourage you to stay close to home and visit the small businesses right in our backyard.</p>
-						<p>Click Shop now to begin shopping local and make a difference in your community.</p>
-						<div class="small-12 medium-3">
-							<p>
-								<a href="#shop" id="shop-btn" class="smile small radius button expand">SHOP NOW</a>
-							</p>
-						</div>
+						<h4><em>Begins November 1st</em></h4>
+						<p>This November, we invite you to say goodbye to the big box supercenters, chain restaurants, and department stores. Instead we encourage you to stay close to home and visit the small businesses right in our backyard.</p> 
+<p>
+Click Shop now to begin shopping local and make a difference in your community.</p>
+						<p><a href="#shop" class="smile">Shop Now</a>
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
+		
+	</div>
 </section>
 <section id="shop">
 	<div class="row">
-		<div class="cat-bg" >
-		<h2>SHOP IN YOUR AREA SELECT A CATEGORY</h2>
-		<div class="row">
-			<label for="shop-cat">Shopping</label>
-			<input type="radio" id="shop-cat" />
+		<div class="search-bg">
+			<form>
+				<h2>SELECT A CATEGORY,&nbsp; THEN ENTER YOUR ZIP CODE</h2>
+					<div class="row">
+						<div class="large-10 large-centered columns">
+							<ul class="categories medium-block-grid-5">
+								<li>
+									<a href="" class="button" title="Dining"><img src="img/dine-icon.svg" alt="Dining Icon"/></a>
+									<p>Dining</p>
+								</li>
+								<li>
+									<a href="" class="button" title="Shopping"><img src="img/shop-icon.svg" alt="Shopping Icon"/></a>
+									<p>shopping</p>
+								</li>
+								<li>
+									<a href="" class="button" title="Entertainment"><img src="img/entertain-icon.svg" alt="Entertainment Icon"/></a>
+									<p>Entertainment</p>
+								</li>
+								<li>
+									<a href="" class="button" title="Travel"><img src="img/travel-icon.svg" alt="Travel Icon"/></a>
+									<p>Travel</p>
+								</li>
+								<li>
+									<a href="" class="button"><img src="img/services-icon.svg" alt="Services Icon"/></a>
+									<p>Services</p>
+								</li>
+							</ul>
+						</div>	
+					</div>
+				<div class="row">
+					<div class="column small-12 medium-6 medium-offset-3 large-4 large-offset-4"> 
+						<label for="search">Change your search area below.</label>
+						<input type="search" id="search" placeholder="Enter ZIP or City"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="column small-12 medium-4 medium-offset-4">
+						<p>
+							<a href="#" id="search-btn" class="small radius button expand">SEARCH</a>
+						</p>
+				</div>
+				</div>
+				
+			</form>
 		</div>
-		<div class="row">
-			<label for="ent-cat">Entertainment</label>
-			<input type="radio" id="ent-cat" />	
-		</div>
-		<div class="row">
-			<label for="services-cat">Services</label>
-			<input type="radio" id="services-cat" />	
-		</div>
-		<div class="row">
-			<label for="travel-cat">Travel</label>
-			<input type="radio" id="travel-cat" />	
-		</div>
-		<div class="row">
-			<label for="dining-cat">Dining</label>
-			<input type="radio" id="dining-cat" />
-		</div>
-		<label for="search">Change your search area below.</label>
-		<input type="search" id="search" placeholder="Enter ZIP or City"/>
-		<p>
-			<a href="#" id="search-btn" class="small radius button expand">SEARCH</a>
-		</p>
-		</div>	
 	</div>
 </section>
-<!--<div class="row-img">
-	<img src="img/promote.jpg">
-</div>-->
+
+<div class="row-img">
+	<img src="img/about.jpg">
+</div>	
+
 <section id="about">
-	<div class="row">
-		<h3><span>About</span>SMALL BUSINESS<span>with the</span>COMMUNITY.</h3>
-		<p>Bright House Networks Small Business Month invites you to explore your community and support the many small businesses right in our backyard. With our new online directory, we’ve made it easier than ever to find your new local favorites. From restaurants to mechanics, there’s something to find for everyone. Simply search using your zip code or find what category you’re looking for.</p>
-	</div>
+			<div class="row">
+				<h3><span>About</span>SMALL BUSINESS<span>with the</span>COMMUNITY.</h3>
+				<p>Bright House Networks Small Business Month invites you to explore your community and support the many small businesses right in our backyard. With our new online directory, we’ve made it easier than ever to find your new local favorites. From restaurants to mechanics, there’s something to find for everyone. Simply search using your zip code or find what category you’re looking for.</p>
+			</div>
 </section>
+
+<div class="row-img">
+	<img src="img/connect.jpg">
+</div>	
+		
 <section id="connect">
 	<div class="row">
-		<h2>DON'T BE SHY.<br>BE SOCIAL.</h2>
+		<h3>DON'T BE SHY.<br>BE SOCIAL.</h3>
 		<ul class="small-block-grid-4">
-			<li>Facebook</li>
-			<li>YouTube</li>
-			<li>twitter</li>
-			<li>instagram</li>
+			<li><a href="https://www.facebook.com/brighthouse.cable" target="_blank"><img src="img/facebook.svg" alt="Bright House Facebook"/></a></li>
+			<li><a href="https://www.youtube.com/user/brighthousenetworks" target="_blank"><img  src="img/youtube.svg" target="_blank" alt="Bright House YouTube"/></a></li>
+			<li><a href="https://twitter.com/BrightHouseNow" target="_blank"><img href="#" src="img/twitter.svg" target="_blank" alt="Bright House Twitter"/></a></li>
+			<li><a href="http://instagram.com/brighthousenetworks" target="_blank"><img href="#" src="img/instagram.svg" target="_blank" alt="Bright House Instagram"/></a></li>
 		</ul>
 		<p>#SmallBusinessMonth</p>
 	</div>
 </section>
 <section id="register">
 	<div class="row">
-		<h2>IT'S NOT<br>TOO LATE!</h2>
-		<p>Registering your business is super easy.</p>
-		<p>
-			<a href="#" id="register-btn" class="small radius button expand">REGISTER NOW</a>
-		</p>
-	</div>
+		<h3>IT'S NOT<br>TOO LATE!</h3>
+		<p>Bright House Small Business Month aims to bring shoppers and small businesses closer together. Join us by registering your small business to be showcased in our special Small Business directory. Being part of Bright House Networks Small Business Month has its incentives. One lucky business will be selected at random to win the grand prize – One Year of Free Services from Bright House Networks Business Solutions (up to $1,000/month for 12 months). Together we will encourage customers to stay local and support small businesses.</p>
+		
+		<div class="column small-12 medium-4 medium-offset-4">
+			<p>
+				<a href="Register.html" target="_blank" id="register-btn" class="small radius button">REGISTER NOW</a>
+			</p>
+		</div>
+</div>
 </section>
 
 
-<!--<div class="row-img">
-	<img src="img/promote.jpg">
-</div>-->
-
+<section id="links">
+	<div class="content">		
+		<div class="row">
+			<div class="small-12 columns">
+				<h4><em>Visit our other sites:</em></h4>
+				<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4 bhn-logos">
+					<li> 
+						<a href="http://brighthouse.com/" title="Bright House Networks" target="_blank" class="bhn-logo-sprite" >Bright House Networks
+							<img src="img/bhn-logo-2.png" alt="Bright House" >
+						</a>
+					</li>
+					<li>
+						<a href="http://businesssolutions.brighthouse.com/" title="Bright House Business Solutions" target="_blank" class="smb-logo-sprite">Bright House Business Solutions
+							<img src="img/smb-logo.png" alt="Bright House Business Solutions" >
+						</a>
+					</li>
+					<li>
+						<a href="http://enterprise.brighthouse.com/" title="Bright House Enterprises Solutions" target="_blank" class="ent-logo-sprite">Bright House Enterprise Solutions
+							<img src="img/ent-logo.png" alt="Bright House Enterprises Solutions" >
+						</a>
+					</li>
+					<li>
+						<a href="http://bhmediastrategies.com/" title="Bright House Media Strategies" target="_blank" class="media-logo-sprite">Bright House Media Strategies
+							<img src="img/media-logo.png" alt="Bright House Media Strategies" >
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
 
 <!-- Begin footer -->
 <footer>
 	<div class="row">
-		<div class="small-8 columns">
+		<div class="small-12 medium-8 columns">
 			<p>©2014 Bright House Networks. All rights reserved.
-				<br>Use of this site constitutes acceptance of our User Agreement and Privacy Policy.
-				<br>The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Bright House Networks.</p>
+				<br />Use of this site constitutes acceptance of our <a href="http://brighthouse.com/policies/policies/online-services-user-agreement.html" target="_new">User Agreement</a> and <a href="http://brighthouse.com/policies/policies/online-services-privacy-policy.html" target="_new">Privacy Policy</a>.
+				<br />The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Bright House Networks.</p>		
 		</div>
-		<div class="small-4 columns">
-			<p>
+		<div class="small-12 medium-4 columns">
+<p>
 				<a href="http://brighthouse.com/policies/policies/online-services-privacy-policy.html#california-rights" target="_blank">Your California Privacy Rights</a>
-				<br>
-				<a>Acceptable Use Policy</a>
-				<br>
-				<a href="terms.html" target="_blank">Terms and Conditions</a>
+				<br />
+                <a href="/Home/Terms" target="_blank">Terms and Conditions</a>
+                <br />
+                <a href="mailto:Small.BizMonth@mybrighthouse.com">Contact Us</a>
+				
 			</p>
 		</div>
 	</div>
@@ -196,26 +247,8 @@
     <script src="bower_components/foundation/js/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/parallax.js"></script>
     <script src="js/navScroll.js"></script>
-    <script src="js/form.js"></script>
     <script src="js/jquery-ui.min.js"></script>
-    <script>
-			$(function() {
-    		$( ".datepicker" ).datepicker({ minDate: new Date(2014, 11 - 1, 01) });
-  		});
-		</script>
-		<script type="text/javascript">
-			$(document).ready(function () {
-					$("table > tbody td").css("padding-right", "10px");
-					if ("@Html.Raw(ViewBag.ErrorMessage)" != "") {
-							$('#error').show();
-					}
-
-					$("#chamber").autocomplete('@Url.Action("ChamberNames", "Register")', { minChars: 3 });
-
-			});
-		</script>
 		<script>
     $(function() {
       var $body;
@@ -233,14 +266,5 @@
       }
     });
 		</script>
-   
-    <!-- References for production
-    <script src="js/libs/jquery.min.js"></script>
-    <script src="js/libs/foundation.min.js"></script>
-    <script src="js/libs/app.js"></script>
-    <script src="js/parallax.js"></script>
-    <script src="js/navScroll.js"></script>
-    <script src="js/form.js"></script>-->
- 
   </body>
 </html>
