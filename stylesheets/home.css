@@ -83,24 +83,35 @@ textarea {
 .categories img {
 	margin-top: 30%;
 }
-#about {
+#about  {
 	max-width: 1600px;
 	margin: 0 auto;
 	text-align: center;
 	background-color: #F2F2F2;
 	padding-bottom: 50px;
 }
-#about p:last-child, #register p:last-child, #register .button {
-	margin-bottom: 0;
-}
+
+
 #about h3 span {
 	font: 20px Arial, Helvetica, sans-serif;
 }
-#connect {
-	background-color: #F2F2F2;
-	margin: 0 auto;
+#connect, #register {
 	max-width: 1600px;
+	margin: 0 auto;
 	text-align: center;
+	background-color: #F2F2F2;
+}
+#register {
+	padding-bottom: 50px;
+}
+#register h3 {
+	margin-bottom: 40px;
+}
+#register p { 
+	margin-bottom: 40px;	
+}
+#register p:last-child, #about p:last-child {
+	margin: 0;
 }
 #connect img {
 	width: 30%;
@@ -109,7 +120,7 @@ textarea {
 	margin-bottom: 50px;
 }
 #connect p {
-	font-size: 2rem;
+	font-size: 1.75rem;
 	margin: 20px 0 50px 0;
 	color: #191A7E;
 }
@@ -117,20 +128,7 @@ textarea {
 #connect h3, #register h3  {
 	line-height: 1;
 }
-#register {  
-	background-color: #000;
-	color: #FFF;
-	text-align: center;
-	margin: 0 auto;
-	max-width: 1600px;
-	padding-bottom: 50px;
-}
-#register h3 {
-	color: #FFF;
-}
-#links {
 
-}
 #links h4 {
 	color: #FFF;
 }
