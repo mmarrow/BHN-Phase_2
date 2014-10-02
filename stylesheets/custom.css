@@ -1,0 +1,552 @@
+/* Custom CSS */
+
+/* Site colors *********************************************************************************
+BHN Blue #191A7E, BHN Yellow #FFB300, Dark Grey #2E2E2E, Light Grey #CECDCB, SBM Blue #084898    
+************************************************************************************************/ 
+
+@font-face {
+	font-family: 'ITCFranklinGothic';
+	font-weight: normal;
+	font-style: normal;
+	src: url("../fonts/itcfranklingothicstd-book-webfont.eot");
+	src: url("../fonts/itcfranklingothicstd-book-webfont.eot?	#iefix") format("embedded-opentype"), url("../fonts/itcfranklingothicstd-book-webfont.ttf") format("truetype"), url("../fonts/itcfranklingothicstd-book-webfont.svg#ITCFranklinGothicStdDemi") format("svg")
+}
+@font-face {
+	font-family: 'ITCFranklinGothic';
+	font-weight: bold;
+	font-style: normal;
+	src: url("../fonts/itcfranklingothicstd-demi-webfont.eot");
+	src: url("../fonts/itcfranklingothicstd-demi-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/itcfranklingothicstd-demi-webfont.ttf") format("truetype"), url("../fonts/itcfranklingothicstd-demi-webfont.svg#ITCFranklinGothicStdDemi") format("svg")
+}
+@font-face {
+	font-family: 'ITCFranklinGothicDemi';
+	font-weight: normal;
+	font-style: normal;
+	src: url("../fonts/itcfranklingothicstd-demi-webfont.eot");
+	src: url("../fonts/itcfranklingothicstd-demi-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/itcfranklingothicstd-demi-webfont.ttf") format("truetype"), url("../fonts/itcfranklingothicstd-demi-webfont.svg#ITCFranklinGothicStdDemi") format("svg")
+}
+
+/****************************
+*********   Global   ********
+*****************************/
+
+h2 {
+	font-style: italic;
+	margin: 30px 0;
+}
+h3 {
+	font-weight: Bold;
+	margin: 50px 0 30px 0;
+}
+h3 span {
+	display: block;
+}
+h4 {
+	font-style: italic;
+	color: #ffffff;
+}
+h5 {
+	font: 1.125rem Arial, Helvetica, sans-serif;
+	color: #084898;
+	margin-top: 20px;
+}
+input,
+select,
+textarea {
+	font: 14px Arial, Helvetica, sans-serif;
+	background-color: #fff;
+	color: #2e2e2e;
+	border: 1px solid #cecdcb;
+	padding: 6px;
+	margin-bottom: 15px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/****************************
+********* Parallax   ********
+*****************************/
+
+#home {
+	min-height: 1390px;
+	height: 1390px;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1600px;
+	position: relative;
+}
+#about {
+	height: 620px;
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	margin-top: 80px;
+	background: rgba(255, 255, 255, 0.95);
+}
+.row-img {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 1600px;
+	/* 100rem */
+}
+#register div.content,
+#thank-you div.content,
+#terms div.content,
+#error div.content {
+	height: 100%;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 1600px;
+	/* 100rem */
+	background: #f2f2f2;
+}
+#promote div.content {
+	color: #fff;
+	background-color: #1f5295;
+	width: 100%;
+	margin: 0 auto;
+	max-width: 1600px;
+	padding-bottom: 10px;
+
+}
+#rba {
+	text-align: center;
+	margin: 0 auto;
+	width: 1600px;
+	background: rgba(255, 255, 255, 0.95);
+	background: #f2f2f2;
+	padding-bottom: 80px;
+
+}
+
+/****************************
+***** General Styles ********
+*****************************/
+
+#register .opt-in {
+	margin-top: 40px;
+}
+#prev-btn {
+	background-color: rgba(255, 179, 0, .5);
+	color: rgba(25, 26, 126, .5)
+}
+#prev-btn:hover {
+	background-color: #FFB300;
+	color: #191A7E;
+}
+#promote .postfix.button {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+#about h3 span {
+	font: 20px Arial, Helvetica, sans-serif;
+}
+#promote h2,
+#promote p,
+#promote label {
+	color: #ffffff;
+}
+#rba a {
+	font: 30px"ITCFranklinGothic", sans-serif;
+}
+#rba a:hover {
+	color: #191A7E;
+}
+.captcha {
+	margin: 30px 0;
+}
+a.smile {
+	background-image: url(../img/smile.png);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	padding-bottom: 40px;
+	white-space: nowrap;
+	font-size: 30px;
+}
+a.smile:hover {
+	text-decoration: none;
+	color: #191a7e;
+}
+div .sbm-logo h1 {
+	visibility: hidden;
+	margin: 0;
+	padding: 0;
+	font-size: 1px;
+}
+.add-del-btns {
+	margin-bottom: 30px;
+}
+#register input[type="button"] {
+	background-color: #CECDCB;
+	cursor: pointer;
+	color: #2E2E2E;
+	font-size: 13px;
+	padding: 8px;
+}
+#register input[type="button"]:disabled {
+	opacity: .5;
+	cursor: not-allowed;
+}
+#step-2 {
+	display: none;
+}
+#terms a:hover {
+	text-decoration: underline;
+	color: #191A7E;
+}
+#register form,
+#about .row,
+#rba .row,
+#promote .content > div.row {
+	padding: 0 15px;
+}
+label.required:after { 
+  content:"*";
+  color:#2E2E2E;
+	margin-left: 2px;
+}
+
+/************************************
+********* Black Content Circle ******
+************************************/
+
+#home .circle-bg {
+	background-color: black;
+	color: white;
+	opacity: .8;
+	border-radius: 50%;
+	height: 630px;
+	margin-top: 60px;
+	text-align: center;
+}
+.circle-content {
+	margin: 20px;
+}
+.circle-content .bhn-logo {
+	padding-top: 50px;
+}
+.circle-content .sbm-logo {
+	padding: 20px 0;
+}
+.circle-content p {
+	color: #ffffff;
+	font-size: 14px;
+	padding: 0 20px;
+}
+.circle-content a {
+	font: 30px"ITCFranklinGothic", sans-serif;
+	color: #ffffff;
+	text-decoration: none;
+}
+.circle-content a:hover {
+	color: #cecdcb;
+}
+
+/****************************
+*****  Nav Drop Down ********
+*****************************/
+
+.top-bar-section li:not(.has-form) a.open {
+	background-color: #ffffff;
+	color: #191A7E;
+}
+#drop1 .button.postfix,
+#drop2 .button.postfix {
+	font-weight: bold;
+	font-size: 18px;
+	left: -3px;
+	top: 6px;
+	line-height: 17px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+#drop1 a,
+#drop2 a {
+	vertical-align: middle;
+}
+#drop1 p,
+#drop2 p {
+	font-size: 13px;
+	line-height: 16px;
+	color: #2E2E2E;
+}
+#drop1 p a,
+#drop2 p a {
+	text-decoration: underline;
+	color: #191A7E;
+	padding: 0;
+	line-height: 16px;
+	background: none;
+}
+.f-dropdown.content.open {
+	left: 700px !important;
+	top: 43px !important;
+	border-radius: 5px 0 5px 5px;
+	border: none;
+}
+.f-dropdown:before,
+.f-dropdown:after {
+	border: none;
+}
+
+/****************************
+**** BHN Logo Sprite ********
+*****************************/
+.bhn-logos {
+	margin: 50px 0 0 2rem;
+}
+#rba a.bhn-logo-sprite,
+#rba a.smb-logo-sprite,
+#rba a.ent-logo-sprite {
+	margin-top: 17px;
+	display: inline-block;
+	min-width: 10px;
+	height: 50px;
+	overflow: hidden;
+}
+#rba a.bhn-logo-sprite:hover img,
+#rba a.smb-logo-sprite:hover img,
+#rba a.ent-logo-sprite:hover img {
+	margin-top: -50px;
+}
+#rba a.media-logo-sprite {
+	margin-top: 17px;
+	display: inline-block;
+	min-width: 10px;
+	height: 55px;
+	overflow: hidden;
+}
+#rba a.media-logo-sprite:hover img {
+	margin-top: -55px;
+}
+
+/****************************
+********* Line Icon  ********
+*****************************/
+
+div.line {
+	margin: 50px 0 30px 0;
+}
+.line {
+	background: transparent url(../img/line.png) repeat-x left 48px;
+	display: block;
+	position: relative;
+}
+#register h2,
+#thank-you h2,
+#terms h2,
+#error h2 {
+	background-color: #f2f2f2;
+	display: inline;
+	padding: 0 1% 0 0;
+}
+
+/****************************
+******* Progress Bar ********
+*****************************/
+
+ol.form-steps {
+	counter-reset: item;
+	display: inline-block;
+	margin-left: 0;
+	margin-bottom: 0;
+	font: normal normal 12px/18px helvetica, arial, sans-serif;
+}
+li.step-1, li.step-2 {
+	color: #CECDCB;
+	display: block;
+	float: left;
+}
+li.step-1:before,
+li.step-2:before {
+	content: counter(item);
+	counter-increment: item;
+	display: inline-block;
+	text-align: center;
+	line-height: 25px;
+	width: 25px;
+	height: 25px;
+	background-color: #CECDCB;
+	border-radius: 50%;
+	margin-right: .5em;
+	margin-bottom: .25em;
+	color: #fff;
+	font-size: 13px;
+	font-weight: bold;
+}
+li.selected.step-1,
+li.selected.step-2 {
+	color: #191A7E;
+	font-weight: bold;
+}
+li.selected.step-1:before,
+li.selected.step-2:before {
+	background-color: #191A7E;
+	font-weight: bold;
+}
+
+.progress {
+	height: 1rem;
+	padding: 0.125rem;
+	display: inline-table;
+	width: 266px;
+	background-color: transparent;
+	border: none;
+}
+
+.selected .meter {
+	background-color: #191A7E;
+	height: 100%;
+	display: block;
+}
+
+/****************************
+*****  Media Queries ********
+*****************************/
+
+/* max-width 640px, mobile-only styles, use when QAing mobile issues */
+@media only screen and (max-width: 40em) {
+	#home {
+		background-image: none;
+		background-color: black;
+		height: 1890px; 
+	}
+	#about {
+		height: 1120px;
+	}
+	#promote {
+		height: 770px;
+	}
+	#rba-bg {
+		background-image: none;
+	}
+	#rba {
+		height: 1000px;
+	}
+}
+
+/* Medium screens /
+/ min-width 641px and max-width 767px medium screens */
+@media only screen and (min-width: 40.063em) and (max-width: 47.9375em) {
+		
+	#home {
+			background-image: none;
+			background-color: black;
+			height: 1890px;
+		}
+		#about {
+			height: 1120px;
+		}
+		#promote {
+			height: 770px;
+		}
+		#rba-bg {
+			background-image: none;
+		}
+		#rba {
+			height: 1000px;
+		}
+		#register .small-offset-2 {
+			margin-left: 0 !important;
+		}	
+}
+
+/* min-width 768px and max-width 980px, use when QAing tablet-only issues */
+@media only screen and (min-width: 48em) and (max-width: 61.25em) {
+	
+	.f-dropdown.content.open {
+		left: 470px !important;
+	}
+	#home {
+		height: 1470px;
+	}
+	#about {
+		height: 700px;
+	}
+	.circle-content .sbm-logo {
+		padding: 20px 0;
+		width: 75%;
+		margin: 0 auto;
+	}
+	#rba-bg {
+		background: url(../img/rba-P.jpg) 50% 25% fixed repeat;
+	}
+	#rba {
+		height: 700px;
+	}
+	
+}
+/* min-width 981px and max-width 1024px, use when QAing tablet-only issues */
+@media only screen and (min-width: 61.26em) and (max-width: 64em) {
+	
+	#rba-bg {
+		background: url(../img/rba-M.jpg) 50% 0 fixed repeat;
+	}
+	#rba {
+		height: 700px;
+	}
+	
+}
+
+/****************************************************
+*******  terms.html and thank-you.html Only  ********
+****************************************************/
+
+#terms h3,
+#thank-you h3,
+#error h3 {
+	font: 1.125rem Arial, Helvetica, sans-serif;
+	color: #2E2E2E;
+	margin: 20px 0 0 0;
+}
+#terms .content,
+#thank-you .content,
+#error .content {
+	padding-bottom: 30px;
+}
+#error h4 {
+	color: #2E2E2E;
+}
+
+/****************************
+*********   Footer   ********
+*****************************/
+
+footer {
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #2e2e2e;
+	background-color: #191A7E;
+	padding: 25px 0;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 1600px;
+}
+footer p {
+	font-size: 10px;
+	margin: 0;
+	color: #ffffff;
+}
+footer a,
+footer a:link,
+footer a:visited {
+	color: #FFB300;
+}
+footer a:hover,
+footer a:active {
+	color: #CECDCB;
+}
+
+/* This is used by JS on index to fix the nav positioned fix bug in IOS  */
+.fixfixed div.contain-to-grid.fixed {
+	position: absolute;
+}

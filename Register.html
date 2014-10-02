@@ -1,0 +1,450 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bright House | Small Business Month</title>
+    <link rel="stylesheet" href="stylesheets/app.css" />
+    <link rel="stylesheet" href="stylesheets/custom.css" />
+
+    <script src="js/libs/modernizr.js"></script>
+   
+  </head>
+  <body>
+    
+<!-- Begin Nav -->
+<div class="contain-to-grid fixed">
+	<nav class="top-bar" data-topbar>
+		<ul class="title-area">
+			<li class="name">
+				<h1><a href="#"></a></h1>
+			</li>
+			<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a>
+			</li>
+		</ul>
+
+		<section class="top-bar-section">
+			<ul class="right">
+				<li>
+					<a href="#" data-dropdown="drop1" data-options="">Update Profile</a>
+					<div id="drop1" data-dropdown-content class="small f-dropdown content">
+						<p>Enter the email address on your account or the business phone number to receive a link to update your information. The link will be sent to the email address that registered your business. If you have questions please <a href="mailto:Small.BizMonth@mybrighthouse.com">contact us</a>.</p>
+						<form>
+							<div class="row">
+								<div class="large-12 columns">
+									<div class="row collapse">
+										<div class="small-10 columns">
+											<input type="text" placeholder="email or phone">
+										</div>
+										<div class="small-2 columns">
+											<a href="#" class="button postfix">></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</li>
+			</ul>
+
+
+			<!-- Left Nav Section -->
+			<ul class="left">
+				<li><a href="index.html">HOME</a>
+				</li>
+				<li><a href="index.html#shop">SHOP</a>
+				</li>
+				<li><a href="index.html#about">ABOUT</a>
+				</li>
+				<li><a href="index.html#connect">CONNECT</a>
+				</li>
+				<li><a href="Register.html">REGISTER</a>
+				</li>
+			</ul>
+		</section>
+	</nav>
+</div>
+<!-- End Nav -->
+
+<section id="register">
+	<div class="content">
+		<div class="row">
+			<!-- Needed for reCaptcha control, and it needs to be outside of the <form> tag. -->
+			<script type="text/javascript">
+			    var RecaptchaOptions = {
+			        theme: 'clean'
+			    };
+			</script>
+
+			<form action="~/Register" method="post" id="RegistrationForm" enctype="multipart/form-data" data-abide>
+				<div class="line">
+					<h2>Registration</h2>
+				</div>
+
+                <div id="error" class="message-error" style="display:none">
+                    @Html.Raw(ViewBag.ErrorMessage)
+                </div>
+				
+				<div>
+				<h5>YOUR INFORMATION</h5>
+				<div class="row">
+					<div class="medium-6 columns">
+						<label class="required">Your Name</label>
+						<input type="text" name="RegistrantName" id="RegistrantName" placeholder="First Last" maxlength="50" required />
+						<small class="error">This field is required</small>
+					</div>
+					<div class="medium-6 columns">
+						<label class="required">Your Email</label>
+						<input type="text" name="RegistrantEmail" id="RegistrantEmail" placeholder="email-address@domain.com" pattern="^[a-zA-Z0-9._+-]+&#64;[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" maxlength="50" required/>
+						<small class="error">This field is required and must be a valid email address</small>
+					</div>
+				</div>
+				
+				<h5>COMPANY INFORMATION</h5>
+				<div class="row">
+					<div class="medium-6 columns">
+						<label class="label-cn required" for="CompanyName">Name of Company</label>
+						<input class="input-cn" name="CompanyName" id="CompanyName" type="text" placeholder="" maxlength="100" required />
+						<small class="error">This field is required</small>
+					</div>
+					<div class="medium-6 columns">
+						<label class="label-web" for="Website">Website</label>
+						<input class="input-web" name="WebSite" id="Website" type="url" placeholder="http://" maxlength="100"/>
+						<small class="error">Please enter a valid website address with http:// format</small>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="medium-6 columns">
+						<label class="label-ca" for="chamber">Chamber Affiliation</label>
+						<input class="input-ca" id="chamber" name="chamber" type="text" placeholder=""/>
+					</div>
+					<div class="medium-6 columns">
+						<label class="label-cat required" for="Category">Business Categories</label>
+						<select class="input-cat" name="Category" id="Category" required>
+							<option value="">- Select -</option>
+							<option value="1">Dining</option>
+							<option value="2">Shopping</option>
+							<option value="3">Entertainment</option>
+							<option value="4">Travel</option>
+							<option value="5">Services</option>
+						</select>
+                        <small class="error">This field is required</small>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="medium-6 columns">
+						<label class="label-emp required" for="CompanySize">Number of Employees</label>
+						<input class="input-emp" name="CompanySize" id="CompanySize" type="text" placeholder="" maxlength="20" required/>
+						<small class="error">This field is required</small>
+					</div>
+					<div class="medium-6 columns">
+						<label class="label-cus required" for="Customer">Are you a Bright House Customer?</label>
+						<select class="input-cus" name="Customer" id="Customer" required>
+							<option value="-1">- Select -</option>
+							<option value="Residential">Residential</option>
+							<option value="Enterprise Solutions">Enterprise Solutions</option>							
+							<option value="Business Solutions">Business Solutions</option>
+							<option value="both">Both Business & Residential</option>
+							<option value="no">No</option>
+						</select>
+					</div>
+				</div>
+
+				<!-- Begin Dynamic Portion of Form -->
+				<div id="entry1" class="clonedInput">
+					<h5 id="reference" name="reference" class="heading-reference">COMPANY CONTACT INFORMATION</h5>
+					<div class="row">
+						<div class="medium-6 columns">
+							<label class="label-phn required" for="Phone">Company Phone</label>
+                            <input class="input-phn" name="Phone" id="Phone" type="tel" pattern="\(?\d{3}\)?-? *\d{3}-? *-?\d{4}" placeholder="" maxlength="25" required />
+							<small class="error">This field is required and must be a valid phone number</small>
+						</div>
+						<div class="medium-6 columns">
+							<label class="label-add required" for="Address">Address</label>
+							<input class="input-add" name="Address" id="Address" type="text" placeholder="" maxlength="100" required />
+							<small class="error">This field is required</small>
+						</div>
+					</div>
+					<div class="row">
+						<div class="medium-6 columns">
+							<label class="label-city required" for="City">City</label>
+							<input class="input-city" name="City" id="City" type="text" placeholder="" maxlength="25" required/>
+							<small class="error">This field is required</small>
+						</div>
+						<div class="row">
+							<div class="medium-6 columns">
+								<div class="large-3 medium-3 small-3 columns">
+									<label class="label-st required" for="State">State</label>
+									<select class="input-st" name="State" id="State" required>
+										<option value="FL" selected>FL</option>
+										<option value="AK">AK</option>
+										<option value="AL">AL</option>
+										<option value="AR">AR</option>
+										<option value="AZ">AZ</option>
+										<option value="CA">CA</option>
+										<option value="CO">CO</option>
+										<option value="CT">CT</option>
+										<option value="DC">DC</option>
+										<option value="DE">DE</option>
+										<option value="GA">GA</option>
+										<option value="HI">HI</option>
+										<option value="IA">IA</option>
+										<option value="ID">ID</option>
+										<option value="IL">IL</option>
+										<option value="IN">IN</option>
+										<option value="KS">KS</option>
+										<option value="KY">KY</option>
+										<option value="LA">LA</option>
+										<option value="MA">MA</option>
+										<option value="MD">MD</option>
+										<option value="ME">ME</option>
+										<option value="MI">MI</option>
+										<option value="MN">MN</option>
+										<option value="MO">MO</option>
+										<option value="MS">MS</option>
+										<option value="MT">MT</option>
+										<option value="NC">NC</option>
+										<option value="ND">ND</option>
+										<option value="NE">NE</option>
+										<option value="NH">NH</option>
+										<option value="NJ">NJ</option>
+										<option value="NM">NM</option>
+										<option value="NV">NV</option>
+										<option value="NY">NY</option>
+										<option value="OH">OH</option>
+										<option value="OK">OK</option>
+										<option value="OR">OR</option>
+										<option value="PA">PA</option>
+										<option value="RI">RI</option>
+										<option value="SC">SC</option>
+										<option value="SD">SD</option>
+										<option value="TN">TN</option>
+										<option value="TX">TX</option>
+										<option value="UT">UT</option>
+										<option value="VA">VA</option>
+										<option value="VT">VT</option>
+										<option value="WA">WA</option>
+										<option value="WI">WI</option>
+										<option value="WV">WV</option>
+										<option value="WY">WY</option>
+									</select>
+									<small class="error">This field is required</small>
+								</div>
+								<div class="medium-6 small-8 columns end">
+									<label class="label-zip required" for="Zip">Zip</label>
+									<input class="input-zip" type="text" name="Zip" id="Zip" placeholder="" pattern="(\d{5}([\-]\d{4})?)" maxlength="10" required/>
+									<small class="error">This field is required and must be a valid zip code</small>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- End Dynamic Portion of Form -->
+<!--				
+				<div class="row">
+					<div class="small-12 columns">
+						<div>
+							<input type="button" id="add-btn" value="Add a Company Location (optional)">
+							<input type="button" id="del-btn" value="Remove Company Location Above">
+						</div>
+					</div>
+				</div>
+				
+				<div class="small-12 medium-3">
+					<p>
+						<a href="#register" id="next-btn" class="small radius button expand">NEXT</a>
+					</p>
+				</div>
+			</div>
+			<!-- End Step 1 of form -->
+	
+			
+			<!-- Begin Step 2 of form -->		
+			<div>
+	
+
+			<div class="row">
+            <div class="large-12 columns">
+              <label>Business Description</label>
+              <textarea maxlength="400" name="BusinessDescription" id="BusinessDescription" placeholder="Business Description"></textarea>
+            </div>
+          	</div>
+          
+          <div class="row">
+						<div class="large-6 medium-6 columns">
+							<label for="BusinessLogo">Business Logo</label>
+							<span data-tooltip data-options="disable_for_touch:true" class="has-tip tip-bottom radius" title="You may upload the following file formats: .png, .jpg, .gif & .bmp.  Files larger than 3MB may not upload.">
+                            <input name="BusinessLogo" id="BusinessLogo" type="file" placeholder="">
+              				</span>
+                        </div>
+						<div class="large-6 medium-6 columns">
+							<label for="BusinessPhoto">Business Photo</label>
+							<span data-tooltip data-options="disable_for_touch:true" class="has-tip tip-bottom radius" title="You may upload the following file formats: .png, .jpg, .gif & .bmp.  Files larger than 3MB may not upload.">
+							<input name="BusinessPhoto" id="BusinessPhoto" type="file" placeholder="">
+							</span>
+                        </div>
+					</div>
+					
+					<div class="row">
+            <div class="large-12 columns">
+              <label for="offer">Offer</label>
+              <textarea maxlength="500" name="Offer" id="Offer"></textarea>
+            </div>
+          </div>
+
+				 <div class="row">
+						<div class="large-5 medium-5 columns">
+							<div class="row">
+								<div class="large-6 medium-6 small-6 columns">
+									<label for="OfferStartDate">Offer Start Date</label>
+									<input name="OfferStartDate" id="OfferStartDate" class="datepicker" type="text" onchange="compareDates();" />
+								</div>	
+								<div class="large-6 medium-6 small-6 columns end">
+									<label for="OfferEndDate">Offer End Date</label>
+									<input name="OfferEndDate" id="OfferEndDate" class="datepicker" type="text" onchange="compareDates();" />
+								</div>
+							</div>	
+						</div>
+					</div>
+				
+			
+				
+					<div class="row opt-in">
+							<div class="small-12 columns">
+								<label>Opt-in to Receive Updates</label>
+								<div class="small-12">
+									<input name="OptInAdvertisingInformation" id="OptInAdvertisingInformation" placeholder="" value="on" type="checkbox" checked><label for="OptInAdvertisingInformation">Bright House Media Strategies/Ad Sales</label>
+								</div>
+								<div class="small-12">
+									<input name="OptInEnterpriseSolutions" id="OptInEnterpriseSolutions" placeholder="" value="on" type="checkbox" checked><label for="OptInEnterpriseSolutions">Bright House Enterprise Solutions</label>
+								</div>  
+								<div class="small-12">
+									<input name="OptInBusinessSolutions" id="OptInBusinessSolutions" placeholder="" value="on" type="checkbox" checked><label for="OptInBusinessSolutions">Bright House Business Solutions</label>
+								</div>  
+								<div class="small-12">
+									<input name="OptInInFreeWiFiHotspot" id="OptInInFreeWiFiHotspot" placeholder="" value="on" type="checkbox" checked><label for="OptInInFreeWiFiHotspot">Bright House Free WiFi Hotspots</label>
+								</div>  
+							</div>
+                    </div>
+			
+			
+				<div class="row">
+					<div class="large-6 medium-10 columns captcha">
+						<!-- reCaptcha Control - also, see the RecaptchaOptions outside the <form> tag  -->
+						<script type="text/javascript" src="http://www.google.com/recaptcha/api/challenge?k=6Lcht_cSAAAAALEj1_9gGjuhpF-VIVTkg0PYwjfJ"></script>
+						<noscript>
+							<iframe src="http://www.google.com/recaptcha/api/noscript?k=6Lcht_cSAAAAALEj1_9gGjuhpF-VIVTkg0PYwjfJ" height="300" width="500" frameborder="0"></iframe>
+							<br>
+							<textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+							<input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+						</noscript>
+						<!-- End of reCaptcha Control  -->
+					</div>
+				</div>
+
+                <div class="row">&nbsp;</div>
+
+				<div class="small-8">
+					<input id="Terms" name="Terms" type="checkbox" required>
+					<label for="Terms">Agree to <a href="~/Home/Terms" target="_new">Terms and Sweepstake Rules</a></label>
+                    <small class="error">You must agree to the Terms and Sweepstake Rules</small>
+				</div>
+
+<div class="row">
+	<div class="small-12 medium-3 columns">
+		<input type="submit" value="SUBMIT" onclick="if (!document.getElementById('RegistrationForm').checkValidity()) {
+            $('#step-1').show();
+            $('#next-btn').hide(); $('#prev-btn').hide();
+        }" class="small radius button expand" />
+	</div>
+	<!--
+	<div class="small-12 medium-3 columns end">
+		<a href="#register" id="prev-btn" class="small radius button expand">PREVIOUS</a>
+	</div>
+	-->
+</div>
+</div>
+<!-- End Step 2 of form -->		
+
+			</form>
+		</div>
+	</div>
+</section>
+
+<section id="promote">
+	<div class="content">
+		<div class="row">
+			<h2>Promote</h2>
+			<div class="row">
+				<div class="large-5 medium-5 columns">
+					<p>Download this poster to hang in your storefront so you can let your customers know you're participating in the Small Business Month.</p>
+					<p><a href="#" class="small radius button yellow expand">DOWNLOAD YOUR POSTER</a>
+					</p>
+					<form>
+						<div class="row">
+							<div class="large-12 columns">
+								<label for="promote-emaill">LET OTHERS KNOW</label>
+								<div class="row collapse">
+									<div class="large-10 medium-10 small-10 columns">
+										<input id="promote-email" type="text" placeholder="email address">
+									</div>
+									<div class="large-2 medium-2 small-2 columns">
+										<a href="#" class="button postfix">></a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="large-5 medium-5 columns">
+					<img src="img/poster.png" alt="promote poster">
+				</div>
+			</div>
+		</div>
+</section>
+
+<section id="rba" >
+	<div class="content">
+		<div class="row">
+			<h3>It's your time<span>to shine</span></h3>
+			<p>The Regional Business Awards was created to recognize those local businesses that do so much more than just provide a service. In February 2014 we gathered together to honor 150 businesses from the Tampa and Orlando markets. These local businesses all had a chance to win from a prize pool estimating up to one million dollars – prizes ranged from cash to free television airtime.</p>
+			<p>Have your business recognized for the amazing work you do. Click here to find out more about registering for the Regional Business Awards.</p>
+			<p><a href="#" class="smile">learn more</a>
+			</p>
+		</div>
+	</div>
+</section>
+
+<!-- Begin footer -->
+<footer>
+	<div class="row">
+		<div class="large-8 medium-8 columns">
+			<p>©2014 Bright House Networks. All rights reserved.
+				<br>Use of this site constitutes acceptance of our User Agreement and Privacy Policy.
+				<br>The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Bright House Networks.</p>
+		</div>
+		<div class="large-2 medium-2 columns">
+			<p>
+				<a>Your California Privacy Rights</a>
+				<br>
+				<a>Acceptable Use Policy</a>
+				<br>
+				<a>Terms and Conditions</a>
+			</p>
+		</div>
+	</div>
+</footer>
+    <!-- End footer -->
+        
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/foundation.min.js"></script>
+    <script src="js/libs/app.js"></script>
+    <script src="js/parallax.js"></script>
+    <script src="js/navScroll.js"></script>
+    <script src="js/form.js"></script>
+
+  </body>
+</html>

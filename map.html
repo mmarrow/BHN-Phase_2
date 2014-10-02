@@ -1,0 +1,291 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0, user-scalable=no height=device-height" />
+    <meta name="HandheldFriendly" content="true" />
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1, minimum-scale=1, width=device-width">-->
+    <title>Detect Location - Small Business Month</title>
+    <link rel="stylesheet" href="stylesheets/app.css"/>
+    <link rel="stylesheet" href="stylesheets/shared.css"/>
+    <link rel="stylesheet" href="stylesheets/home.css"/>
+
+    <!-- Delete this in ref production and use below commented ref -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+		<script src="http://apps.brighthouse.stage/smallbizmonth/scripts/map.js"></script>
+		<script src="http://apps.brighthouse.stage/smallbizmonth/scripts/jquery-2.1.1.min.js"></script>
+  </head>
+  <body>
+    
+<!-- Begin Nav -->
+<div class="contain-to-grid fixed">
+	<nav class="top-bar" data-topbar>
+		<ul class="title-area">
+			<li class="name">
+				<h1><a href="#"></a></h1>
+			</li>
+			<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+			<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a>
+			</li>
+		</ul>
+
+		<section class="top-bar-section">
+			<ul class="right">
+				<li>
+					<a href="#" data-dropdown="drop1" data-options="">Update Registration</a>
+					<div id="drop1" data-dropdown-content class="small f-dropdown content">
+						<p>Enter the email address on your account or the business phone number to receive a link to update your information. The link will be sent to the email address that registered your business.</p>
+						<form>
+							<div class="row">
+								<div class="large-12 columns">
+									<div class="row collapse">
+										<div class="small-10 columns">
+											<input type="text" placeholder="email or phone">
+										</div>
+										<div class="large-2 medium-2 small-2 columns">
+										<input type="submit" class="button postfix" value=">" />
+									</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</li>
+			</ul>
+
+
+			<!-- Left Nav Section -->
+			<ul class="left">
+				<li><a href="#home">HOME</a>
+				</li>
+				<li><a href="#shop">SHOP</a>
+				</li>
+				<li><a href="#about">ABOUT</a>
+				</li>
+				<li><a href="#connect">CONNECT</a>
+				</li>
+				<li><a href="#register">REGISTER</a>
+				</li>
+			</ul>
+		</section>
+	</nav>
+</div>
+<!-- End Nav -->
+
+
+<script>
+    //var map;
+
+    //var companyName = 'Bright House Networks';
+
+    //var latLng = new google.maps.LatLng('28.6194170', '-81.3975956');
+
+    //var contentString = '<div id="content">' +
+    //      '<h1 id="firstHeading" class="firstHeading">Bright House Networks</h1>' +
+    //      '<div id="bodyContent">' +
+    //      '<p><a href="tel:407-215-8721">407-215-8721</a></p>' +
+    //      '<p>65 S. Keller Rd.</p>' +
+    //      '<p>Orlando, FL 32810</p>' +
+    //      '<p><a href="http://brighthouse.com">http://brighthouse.com</a></p>' +
+    //      '</div>' +
+    //      '</div>';
+
+
+    function placeInfoWindow(latLng, contentString, companyName) {
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+            //,maxWidth: 300
+        });
+
+        var marker = new google.maps.Marker({
+            position: latLng,
+            icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png",
+            map: map,
+            title: companyName
+        });
+        markers.push(marker);
+        google.maps.event.addListener(marker, 'click', function () {
+            infowindow.open(map, marker);
+        });
+
+    }
+
+    // Sets the map on all markers in the array.
+    function setAllMap(map) {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(map);
+        }
+    }
+
+    // Removes the markers from the map, but keeps them in the array.
+    function clearMarkers() {
+        setAllMap(null);
+    }
+
+    // Shows any markers currently in the array.
+    function showMarkers() {
+        setAllMap(map);
+    }
+
+    // Deletes all markers in the array by removing references to them.
+    function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+    }
+
+
+
+function success(position) {
+  var s = document.querySelector('#status');
+  
+  if (s.className == 'success') {
+    // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
+    return;
+  }
+  
+  s.innerHTML = "";
+  s.className = 'success';
+  
+  var mapcanvas = document.createElement('div');
+  mapcanvas.id = 'mapcanvas';
+  mapcanvas.style.height = '600px';
+  mapcanvas.style.width = '100%';
+    
+  document.querySelector('article').appendChild(mapcanvas);
+
+  var latlng = null;
+  
+  if (position != null) {
+      latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  } else {
+      latlng = new google.maps.LatLng('28.6194170', '-81.3975956'); //default to CFL
+  }
+  searchOrigin = latlng;
+  var myOptions = {
+    zoom: 11,
+    center: latlng,
+    mapTypeControl: false,
+    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  
+  var marker = new google.maps.Marker({
+      position: latlng,
+      icon: "http://maps.google.com/mapfiles/ms/icons/green-dot.png",
+      map: map, 
+      title:"Search Origin"
+  });
+
+  placeInfoWindow();
+
+  ps.PerformSearch();
+}
+
+function error(msg) {
+  var s = document.querySelector('#status');
+  s.innerHTML = typeof msg == 'string' ? msg : "failed to auto-detect location, defaulting to CFL";
+  s.className = 'fail';
+  
+  success(null);
+  // console.log(arguments);
+}
+
+
+
+
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+} else {
+    error('auto-location detect not supported, defaulting to CFL');
+    success(null);
+}
+
+</script>
+
+<table border="0" cellpadding="4" cellspacing="0" width="80%">
+    <tr>
+        <td><font face="arial, helvetica">Business Category: </font>
+            <select id="BusinessCategory" onchange="ps.PerformSearch();">
+                <option value="5">Services</option>
+                <option value="1">Dining</option>
+                <option value="2">Shopping</option>
+                <option value="3">Entertainment</option>
+                <option value="4">Travel</option>
+            </select></td>
+        <td><font face="arial, helvetica">Number of businesses to display: </font>
+            <select id="BusinessCount" onchange="ps.PerformSearch();">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+                <option value="0">All</option>
+            </select></td>
+        <td><font face="arial, helvetica">Within: </font>
+            <select id="Distance" onchange="ps.PerformSearch();">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="0">All</option>
+            </select><font face="arial, helvetica"> miles of my search location</font></td>
+    </tr>
+</table>
+
+    <article>
+      <p><span id="status">loading...</span></p>
+    </article>
+
+<div id="count" style="font-family:Arial"></div>
+
+
+
+<!-- Begin footer -->
+<footer>
+	<div class="row">
+		<div class="small-12 medium-8 columns">
+			<p>©2014 Bright House Networks. All rights reserved.
+				<br />Use of this site constitutes acceptance of our <a href="http://brighthouse.com/policies/policies/online-services-user-agreement.html" target="_new">User Agreement</a> and <a href="http://brighthouse.com/policies/policies/online-services-privacy-policy.html" target="_new">Privacy Policy</a>.
+				<br />The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except with the prior written permission of Bright House Networks.</p>		
+		</div>
+		<div class="small-12 medium-4 columns">
+<p>
+				<a href="http://brighthouse.com/policies/policies/online-services-privacy-policy.html#california-rights" target="_blank">Your California Privacy Rights</a>
+				<br />
+                <a href="/Home/Terms" target="_blank">Terms and Conditions</a>
+                <br />
+                <a href="mailto:Small.BizMonth@mybrighthouse.com">Contact Us</a>
+				
+			</p>
+		</div>
+	</div>
+</footer>
+    <!-- End footer -->
+        
+    <script src="bower_components/foundation/js/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/navScroll.js"></script>
+		<script>
+    $(function() {
+      var $body;
+      if (Modernizr.touch) {
+        $body = $("body");
+        document.addEventListener('focusin', function() {
+          return $body.addClass("fixfixed");
+        });
+        return document.addEventListener('focusout', function() {
+          $body.removeClass("fixfixed");
+          return setTimeout(function() {
+            return $(window).scrollLeft(0);
+          }, 20);
+        });
+      }
+    });
+		</script>
+  </body>
+</html>
